@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electrical and Electronics Engineering Results</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('electrical.jpg') no-repeat center center/cover;
+      color: rgb(251, 251, 251);
+      text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: white;
+      padding: 20px;
+    }
+
+    .semester-container {
+      flex: 1;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .button-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 400px;
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .semester-btn {
+      padding: 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px 0;
+      width: 100%;
+      font-size: 18px;
+    }
+
+    .semester-btn:hover {
+      background-color: #45a049;
+    }
+
+    .semester-content {
+      display: none;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .back-btn {
+      padding: 10px 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    .back-btn:hover {
+      background-color: #005bb5;
+    }
+
+    footer {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Electrical and Electronics and Engineering Results</h1>
+</header>
+
+<div class="semester-container">
+  <h2>Select Semester</h2>
+  <div class="button-wrapper" id="semester-buttons">
+    <button class="semester-btn" onclick="showResult('first')">1st Semester</button>
+    <button class="semester-btn" onclick="showResult('second')">2nd Semester</button>
+    <button class="semester-btn" onclick="showResult('third')">3rd Semester</button>
+    <button class="semester-btn" onclick="showResult('fourth')">4th Semester</button>
+    <button class="semester-btn" onclick="showResult('fifth')">5th Semester</button>
+    <button class="semester-btn" onclick="showResult('sixth')">6th Semester</button>
+  </div>
+
+  <div class="semester-content" id="semester-content"></div>
+</div>
+
+  
+  
+
+<footer>
+  <p>&copy; 2025 East West Polytechnic. All rights reserved.</p>
+</footer>
+
+<script>
+  function showResult(semester) {
+    document.getElementById('semester-buttons').style.display = 'none';
+    const content = document.getElementById('semester-content');
+    content.style.display = 'block';
+
+    const basePath = "file:///C:/Users/itsme/OneDrive/Desktop/project/tige1r_files/2200_files/";
+    const fileMap = {
+      first: "EEEsem1.htm",
+      second: "EEEsem2.htm",
+      third: "EEEsem3.htm",
+      fourth: "EEEsem4.htm",
+      fifth: "EEEsem5.htm",
+      sixth: "EEEsem6.htm"
+    };
+
+    const fileName = fileMap[semester];
+    const resultLink = `<a href="${basePath + fileName}" target="_blank" style="color: #00ffcc;">View Result</a>`;
+
+    content.innerHTML = `
+      <h2>${semester.charAt(0).toUpperCase() + semester.slice(1)} Semester Result</h2>
+      <p><strong>${resultLink}</strong></p>
+      <button class="back-btn" onclick="goBack()">Back to Semesters</button>
+    `;
+  }
+
+  function goBack() {
+    document.getElementById('semester-content').style.display = 'none';
+    document.getElementById('semester-buttons').style.display = 'flex';
+  }
+
+  function goToStudentButtons() {
+    const selectedBranch = document.getElementById("branchSelect").value;
+    window.location.href = `student-buttons.html?branch=${encodeURIComponent(selectedBranch)}`;
+  }
+  
+  
+</script>
+
+</body>
+</html>

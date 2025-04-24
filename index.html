@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Form and Engineering Branches</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo" />
+    </div>
+    <div class="container">
+      <h1>East West Polytechnic</h1>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="department.html/">Courses</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="login-wrapper">
+    <div class="form-container">
+      <h2>Login</h2>
+      <form onsubmit="loginUser(event)">
+        <div class="input-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        </div>
+        <div class="input-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" placeholder="Enter your password" required />
+        </div>
+        <div class="input-group">
+          <button type="submit" class="btn">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <script>
+    function loginUser(event) {
+      event.preventDefault(); // prevent form from reloading page
+
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      // Optional: You can add credential check here
+      // Example:
+      // if (email === "student@example.com" && password === "1234") {
+      //   window.location.href = "branches.html";
+      // } else {
+      //   alert("Invalid email or password");
+      // }
+
+      // For now, always redirect to branches.html
+      window.location.href = 'branch.html';
+    }
+  </script>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 East West Polytechnic. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

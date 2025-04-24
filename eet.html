@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>East West Polytechnic - Result Portal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: url("electrical.jpg") no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: #fffefe;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    header .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+    }
+
+    header .logo img {
+      max-width: 100px;
+      height: auto;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 0;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    header nav ul li {
+      margin: 0 1rem;
+    }
+
+    header nav ul li a {
+      color: #eee6e6;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    header nav ul li a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      min-height: calc(100vh - 160px);
+    }
+
+    .result-form {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .result-form h2 {
+      margin-bottom: 20px;
+      color: #003366;
+    }
+
+    .result-form input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .result-form button {
+      padding: 12px 25px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 10px;
+    }
+
+    .result-form button:hover {
+      background-color: #0052a3;
+    }
+
+    .back-button {
+      margin-bottom: 20px;
+      background-color: #ff4d4d;
+    }
+
+    .back-button:hover {
+      background-color: #cc0000;
+    }
+    footer {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: white;
+      text-align: center;
+      padding: 10px;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="logo.jpg" alt="Logo">
+    </div>
+    <div class="container">
+      <h1>East West Polytechnic</h1>
+      <nav>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="department.html/">Courses</a></li>
+          <li><a href="contact-us.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="result-form">
+      <button class="back-button" onclick="goBack()">⬅ Back</button>
+      <h2>Electrical and Electronics</h2>
+      <form onsubmit="return validateAndRedirect(event)">
+        <input type="text" id="registerNo" placeholder="Enter Register Number" required>
+        <button type="submit">Check Result</button>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 East West Polytechnic. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function validateAndRedirect(event) {
+      event.preventDefault();
+      let registerNo = document.getElementById("registerNo").value.trim();
+
+      const links = {
+     "499EE22001": "file:///C:/Users/itsme/OneDrive/Desktop/EE/499EE22001.htm",
+      "499EE22002": "file:///C:/Users/itsme/OneDrive/Desktop/EE/499EE22002.htm",
+      "499EE22003": "file:///C:/Users/itsme/OneDrive/Desktop/EE/499EE22003.htm",
+      "499EE22004": "file:///C:/Users/itsme/OneDrive/Desktop/EE/499EE22004.htm"
+    }
+
+      if (links[registerNo]) {
+        window.location.href = links[registerNo];
+      } else {
+        alert("No result found for this register number.");
+      }
+
+      return false;
+    }
+
+    function goBack() {
+      window.location.href = 'hee.html';
+    }
+  </script>
+</body>
+</html>
